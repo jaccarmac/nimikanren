@@ -46,7 +46,7 @@ implementation will be added to this file and the associated repository.
   #+BEGIN_SRC text
     [Package]
     name        = "nimikanren"
-    version     = "0.1.0"
+    version     = "0.2.0"
     author      = "Jacob MacDonald"
     description = "Use miniKanren relational programming in Nim."
     license     = "Unlicense"
@@ -61,6 +61,45 @@ implementation will be added to this file and the associated repository.
     Requires: "nim >= 0.10.3"
   #+END_SRC
 
+* Represent miniKanren variables.
+
+  The problem of representing variables of different types that can be reasoned
+  over heterogenously in a typed language confused me for a long time. I
+  referred to a [[https://github.com/hiredman/gologic][Go implementation]] of miniKanren, and for a while the
+  implementation of ~var~ there confused me to no end. However, I'm pretty sure
+  that the solution is dead simple: Represent ~var~s with IDs and look them up
+  using another method later. Eventually I want a more elegant solution
+  (macros?). (The global incrementor for ~var~s seems clumsy at best.)
+
+  #+NAME: vars.nim-fresh
+  #+BEGIN_SRC nim
+    var freshCount = 0
+    proc fresh*: int =
+      result = freshCount
+      freshCount = freshCount + 1
+  #+END_SRC
+
+  ~var~s created by ~fresh~ can be used like so (the actual doing of stuff will
+  come later).
+
+  #+BEGIN_SRC nim
+    import vars
+
+    var values = ["zero", "one", "two", "three"]
+    var thingOne = fresh()
+    var thingTwo = fresh()
+
+    # Do stuff with thing.
+
+    var valueOne = values[thingOne]
+    var valueTwo = values[thingTwo]
+
+    echo valueOne, valueTwo
+  #+END_SRC
+
+  Creating a function to parse arbitrary ~int~s into values of your choice is
+  another option.
+
 * Tangle source code.
 
 ** =nimikanren.nimble=
@@ -69,4 +108,10 @@ implementation will be added to this file and the associated repository.
      <<nimikanren.nimble-package>>
 
      <<nimikanren.nimble-deps>>
+   #+END_SRC
+
+** =vars.nim=
+
+   #+BEGIN_SRC nim :noweb no-export :tangle vars.nim :padline no
+     <<vars.nim-fresh>>
    #+END_SRC
