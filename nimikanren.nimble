@@ -1,6 +1,6 @@
 [Package]
 name        = "nimikanren"
-version     = "0.1.0"
+version     = "0.2.0"
 author      = "Jacob MacDonald"
 description = "Use miniKanren relational programming in Nim."
 license     = "Unlicense"
