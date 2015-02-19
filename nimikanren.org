@@ -46,10 +46,11 @@ implementation will be added to this file and the associated repository.
   #+BEGIN_SRC text
     [Package]
     name        = "nimikanren"
-    version     = "0.2.0"
+    version     = "0.2.1"
     author      = "Jacob MacDonald"
     description = "Use miniKanren relational programming in Nim."
     license     = "Unlicense"
+    srcDir      = "src"
   #+END_SRC
 
   The dependencies should not have to change that much. Just to be safe,
@@ -110,8 +111,8 @@ implementation will be added to this file and the associated repository.
      <<nimikanren.nimble-deps>>
    #+END_SRC
 
-** =vars.nim=
+** =src/vars.nim=
 
-   #+BEGIN_SRC nim :noweb no-export :tangle vars.nim :padline no
+   #+BEGIN_SRC nim :noweb no-export :tangle src/vars.nim :padline no
      <<vars.nim-fresh>>
    #+END_SRC
