@@ -100,7 +100,7 @@ implementation will be added to this file and the associated repository.
 
 ** =nimikanren.nim=
 
-   #+BEGIN_SRC nim :noweb no-export :tangle nimikanren.nim :padline no
+   #+BEGIN_SRC nim :noweb no-export :tangle src/nimikanren.nim :padline no
      <<nimikanren.nim-LogicVar>>
    #+END_SRC
 * Run unit tests.
