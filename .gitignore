@@ -1,2 +1,3 @@
-nimcache/
-tests/all
+/nimcache/
+/tests/all
+/tests/all.exe
