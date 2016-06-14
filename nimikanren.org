@@ -90,7 +90,7 @@ implementation will be added to this file and the associated repository.
 
 * Tangle source code.
 
-** =nimikanren.nimble=
+** =src/nimikanren.nimble=
 
    #+BEGIN_SRC text :noweb no-export :tangle nimikanren.nimble :padline no
      <<nimikanren.nimble-package>>
@@ -108,6 +108,13 @@ implementation will be added to this file and the associated repository.
   As you may have noticed, each code snippet above has an accompanying bit of
   unit test. This section puts these tests in files so they can be run. To run
   all tests, just ~nim c -r tests/all~.
+
+  In case the package has not been installed globally, make sure the test files
+  know where to find the code they want to test.
+
+  #+BEGIN_SRC conf :noweb no-export :tangle tests/nim.cfg
+    path = "$projectPath/../src"
+  #+END_SRC
 
   #+BEGIN_SRC nim :noweb no-export :tangle tests/all.nim :padline no
     import unittest
