@@ -13,4 +13,4 @@ requires "nim >= 0.17.1"
 # Tasks
 
 task tests, "Run all tests.":
-  exec "nimble c -r tests/all"
+  exec "nimble c -r --path=" & srcDir & " tests/all.nim"
