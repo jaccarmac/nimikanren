@@ -7,4 +7,4 @@ license      = "Unlicense"
 srcDir = "src"
 
 [Deps]
-Requires: "nim >= 0.10.3"
+Requires: "nim >= 0.17.1"
