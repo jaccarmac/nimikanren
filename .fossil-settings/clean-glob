@@ -1,3 +1,4 @@
-**/nimcache
+htmldocs/
+**/nimcache/
 tests/all
 tests/all.exe
