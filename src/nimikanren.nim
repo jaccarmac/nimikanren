@@ -4,7 +4,6 @@ type
 proc initLogicVar*(name: string): LogicVar =
   LogicVar name
 
-proc `$`*(v: LogicVar): string =
-  string v
+proc `$`*(v: LogicVar): string {.borrow.}
 
 proc `==`*(x, y: LogicVar): bool {.borrow.}
