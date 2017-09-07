@@ -1,4 +1,4 @@
-import ../nimikanren
+import nimikanren
 
 import unittest
 
