@@ -1,9 +1,10 @@
 type
-  LogicVar* = tuple
-    name: string
+  LogicVar* = distinct string
 
 proc initLogicVar*(name: string): LogicVar =
-  (name: name)
+  LogicVar name
 
 proc `$`*(v: LogicVar): string =
-  v.name
+  string v
+
+proc `==`*(x, y: LogicVar): bool {.borrow.}
