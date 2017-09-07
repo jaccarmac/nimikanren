@@ -1,6 +1,5 @@
-import nimikanren
-
 import unittest
+import nimikanren
 
 suite "Represent logic variables.":
   test "Create a new LogicVar.":
